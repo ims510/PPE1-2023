@@ -22,3 +22,7 @@
 * Quand j'ai essayé de récuperer mon dépôt depuis GitHub j'ai reçu l'erreur suivante:
 * <img width="375" alt="image" src="https://github.com/ims510/PPE1-2023/assets/113267498/5015fdda-32ad-4101-bf7b-36a4d304d4e2">
 * J'ai donc cherché une solution sur internet et j'ai essayé la commande: `ssh-add ~/.ssh/id_ed25519_ppe2324` et après la commande git clone a functionné. 
+### Les exercices
+* J'ai écrit sur le site ce que j'ai fait pour reussir à utiliser la commande `git clone`.
+* Ensuite, j'ai utilisé la commande `git log` pour voir la liste des changements que j'avais faits, mais la plus récente n'était pas sur la liste.
+* J'ai donc utilisé la commande `git pull` pour synchroniser ce qu'il y avait sur le site et sur mon ordinateur. J'ai verifié que tout c'est bien passé en utilisant la commande `git status` et j'ai reçu le message que la branche était à jour.
