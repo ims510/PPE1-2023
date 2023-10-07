@@ -26,3 +26,5 @@
 * J'ai écrit sur le site ce que j'ai fait pour reussir à utiliser la commande `git clone`.
 * Ensuite, j'ai utilisé la commande `git log` pour voir la liste des changements que j'avais faits, mais la plus récente n'était pas sur la liste.
 * J'ai donc utilisé la commande `git pull` pour synchroniser ce qu'il y avait sur le site et sur mon ordinateur. J'ai verifié que tout c'est bien passé en utilisant la commande `git status` et j'ai reçu le message que la branche était à jour.
+
+## Seance du 4 octobre
