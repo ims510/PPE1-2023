@@ -45,4 +45,17 @@
 - Ensuite j'ai fait `git push --tags`.
 
 ### Execice 2
-- J'ai crée un nouveau document en utilisant `touch journal.md` et j'ai utilisé `code journal.md` pour ecrire mes notes pour la séance 3 jusqu'ici. 
+- J'ai crée un nouveau document en utilisant `touch oups.md` et j'ai utilisé `code oups.md` pour ecrire mes notes en VSCode pour la séance 3 jusqu'ici. 
+
+### Execice 2a
+- J'ai utilisé la commande `git reset` et le code SSH du commit avec le tag git-seance3-init.
+
+### Execice 2b
+- J'ai copié-collé les notes que j'avais écris dans oups.md. Ensuite j'ai utilisé `rm oups.md` pour supprimer le document Après j'ai utilisé `git add`, `git commit` et `git push`.
+
+### Execice 2c
+- J'ai crée un nouveau tag git-seance3 avec la commande `git tag -a -m "seance 3, version finale des exercices de git" "git-seance3"` et j'ai fait `git push --tags`.
+
+## Points difficiles
+- Après cela j'ai fait `git status` et j'ai reçu le message que mes branches ont divergé. J'ai donc fait `git log` et `git log origin/main` pour voir la difference et je me suis rendu compte qu'il y avait un commit en ligne qui n'existait pas sur ma machine - le commit que j'avais fait apres avoir créé le document oups.md. 
+- J'ai donc fait `git push --force` de nouveau pour maintenir la version locale comme la version synchronisée. 
