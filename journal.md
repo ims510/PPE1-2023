@@ -59,3 +59,12 @@
 ## Points difficiles
 - Après cela j'ai fait `git status` et j'ai reçu le message que mes branches ont divergé. J'ai donc fait `git log` et `git log origin/main` pour voir la difference et je me suis rendu compte qu'il y avait un commit en ligne qui n'existait pas sur ma machine - le commit que j'avais fait apres avoir créé le document oups.md. 
 - J'ai donc fait `git push --force` de nouveau pour maintenir la version locale comme la version synchronisée. 
+
+## 4. Seance du 11 octobre
+
+### Les exercices:
+
+#### Trouver les annotations les plus fréquentes pour votre mois de naissance, toutes années confondues.
+
+- J'ai créé un nouveau dossier dans mon dossier git, et dedans un fichier text (exo_slide24) pour que je puisse y écrire les resultats obtenus. 
+- 
