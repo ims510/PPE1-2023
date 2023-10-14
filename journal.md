@@ -64,7 +64,7 @@
 
 ### Les exercices:
 
-#### Trouver les annotations les plus fréquentes pour votre mois de naissance, toutes années confondues.
+#### Trouver les annotations les plus fréquentes pour votre mois de naissance, toutes années confondues (slide 24).
 
 - J'ai créé un nouveau dossier dans mon dossier git, et dedans un fichier text (exo_slide24) pour que je puisse y écrire les resultats obtenus. 
 - J'ai copié-collé le texte de l'exercice dans ce fichier. 
@@ -81,7 +81,7 @@ echo "Le plus grand nombre d'annotations et l'annee qui les contient est: " >> /
 ls ./*/10/* | cut -d / -f 2 | uniq --count | sort -rn | head -n 1 >> /Users/madalina/Documents/M1TAL/PPE/PPE1-2023/Exercices/seance4/exo_slide24.txt
 ```
 
-#### Ecrire un script qui donne le nombre de Location par année
+#### Ecrire un script qui donne le nombre de Location par année (slide 26)
 - J'ai créé un fichier exo_slide26.sh où j'aurai mon script bash.
 - Je suis revenue dans mon terminal pour être sure d'avoir la bonne commande pour chaque année: 
 ```
@@ -96,3 +96,22 @@ cat ./2016/*/* | grep Location | wc -l
 - J'ai cherché sur internet une solution et j'ai trouvé qu'il faut executer `which bash`. J'ai reçu la réponse `/bin/bash`. J'ai donc changé le debut du fichier en `#!/bin/bash` ce qui a résolu le problème. 
 - Ensuite j'ai voulu un meilleur aspect pour le resultat, donc j'ai ajouté 3 commandes `echo "Le nombre de répétitions du mot 'Location' en 2016 est: "` - une pour chaque année. 
 - En executant le script, j'ai vu que la reponse etait sur la ligne suivante apres le texte d'echo, donc j'ai fait man echo pour voire s'il y a une façon de ne pas avoir ça. J'ai changé donc la commande en ajoutant -n après echo. 
+
+#### Exercice 1a - slide 29
+- Comme j'ai fait avant, j'ai testé la commande dans le terminal avant de l'écrire dans le fichier exo1a_slide29.sh
+- J'ai ajouté un deuxième argument pour le chemin du fichier.
+- J'ai fait le fichier executable en utilisant la commande `chmod +x exo1a_slide29.sh`
+
+#### Exercice 1b - slide 29
+- J'ai copié-collé la commande du terminal dans le fichier exo1b_slide29.sh la commande que j'avais utilisé pour lancer le script precedent. 
+- Je me suis rendue compte que j'avais besoin d'un autre argument dans le script precedent pour l'année que je pourrais utiliser dans ce script. Je suis donc revenue dans le script precedent et j'ai ajouté la variable YEAR. 
+- Je voulais ajouter un peu de texte avant les resultats de la commande et j'ai cherché si on peut utiliser les variable quand on fait echo.
+
+#### Exercice 2 - slide 29
+- J'ai construit la commande dans le terminal, même si je sais qu'on a fait cette commande pendant le cours. Je voulais m'assurer que je peux la faire moi-même. 
+- Je l'ai copié-collé dans le fichier texte, et j'ai remplacé les parties qu'on veut avoir en argument avec les noms de variables que j'ai ensuite créées. 
+- J'ai fait le fichier executable et j'ai testé le fichier. 
+
+Points difficiles:
+- J'ai trouvé assez difficile le passage de la théorie dans les slides à la pratique en faisant les exercices.
+- J'ai pris un peu de temps pour comprendre qu'il fallait une autre variable pour le chemin vers le fichiers qu'on a utilisés dans les problemes. 
