@@ -67,4 +67,32 @@
 #### Trouver les annotations les plus fréquentes pour votre mois de naissance, toutes années confondues.
 
 - J'ai créé un nouveau dossier dans mon dossier git, et dedans un fichier text (exo_slide24) pour que je puisse y écrire les resultats obtenus. 
-- 
+- J'ai copié-collé le texte de l'exercice dans ce fichier. 
+- J'ai utilisé la commande `ls ./*/10/* | cat` pour voir tous les fichiers .ann de mon mois de naissance.
+- Après j'ai voulu supprimer les autres chiffres du nom de chaque fichier pour que je puisse faire `uniq --count`. 
+- J'ai donc fait la commande `ls ./*/10/* | cut -d / -f 2`
+- Ensuite j'ai utilisé la commande `uniq --count`. J'ai obtenu le nombre de fichiers de chaque année. Pour que je puisse obtenir le nombre le plus haut j'ai ordonné la liste, et j'ai utilisé head pour obtenir le nombre le plus haut. La commande à ce moment était `ls ./*/10/* | cut -d / -f 2 | uniq --count | sort -rn | head n1`
+- Avant d'ajouter les resultats dans le fichier text j'ai voulu ajouter une phrase d'introduction, donc j'ai fait la commande 
+```
+echo "Le plus grand nombre d'annotations et l'annee qui les contient est: " >> /Users/madalina/Documents/M1TAL/PPE/PPE1-2023/Exercices/seance4/exo_slide24.txt
+```
+- Pour écrire le resultat dans le fichier text j'ai donc utilisé la commande: 
+```
+ls ./*/10/* | cut -d / -f 2 | uniq --count | sort -rn | head -n 1 >> /Users/madalina/Documents/M1TAL/PPE/PPE1-2023/Exercices/seance4/exo_slide24.txt
+```
+
+#### Ecrire un script qui donne le nombre de Location par année
+- J'ai créé un fichier exo_slide26.sh où j'aurai mon script bash.
+- Je suis revenue dans mon terminal pour être sure d'avoir la bonne commande pour chaque année: 
+```
+cat ./2016/*/* | grep Location | wc -l
+```
+- Ensuite dans le fichier exo_slide26.sh j'ai ajouté au debut du fichier `#!/usr/bin/bash`, l'exercice, et les commandes.
+- J'ai donné au premier argument la variable pour le chemin des fichiers ann. Ensuite j'ai copié-collé les commandes que j'avais testé dans mon terminal. 
+- Quand j'ai essayé la commande `bash exo_slide26.sh ~/Documents/M1TAL/PPE/Cours/Fichiers/ann` j'ai obtenu les 3 numeros (le nombre de repetitions de location pour chaque année).
+- J'ai voulu ensuite essayer d'executer le script en utilisant la commande `./exo_slide26.sh ~/Documents/M1TAL/PPE/Cours/Fichiers/ann`. J'ai reçu une erreur car j'avais pas fait le fichier executable.
+- J'ai donc executé la commande `chmod +x exo_slide26.sh` et j'ai reessayé d'executer le script.
+- J'ai reçu une autre erreur: `zsh: ./exo_slide26.sh: bad interpreter: /usr/bin/bash: no such file or directory`
+- J'ai cherché sur internet une solution et j'ai trouvé qu'il faut executer `which bash`. J'ai reçu la réponse `/bin/bash`. J'ai donc changé le debut du fichier en `#!/bin/bash` ce qui a résolu le problème. 
+- Ensuite j'ai voulu un meilleur aspect pour le resultat, donc j'ai ajouté 3 commandes `echo "Le nombre de répétitions du mot 'Location' en 2016 est: "` - une pour chaque année. 
+- En executant le script, j'ai vu que la reponse etait sur la ligne suivante apres le texte d'echo, donc j'ai fait man echo pour voire s'il y a une façon de ne pas avoir ça. J'ai changé donc la commande en ajoutant -n après echo. 
