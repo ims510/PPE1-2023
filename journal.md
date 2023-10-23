@@ -115,3 +115,45 @@ cat ./2016/*/* | grep Location | wc -l
 Points difficiles:
 - J'ai trouvé assez difficile le passage de la théorie dans les slides à la pratique en faisant les exercices.
 - J'ai pris un peu de temps pour comprendre qu'il fallait une autre variable pour le chemin vers le fichiers qu'on a utilisés dans les problemes. 
+
+## 5. Séance du 18 octobre
+
+Pendant le cours j'ai essayé les boucles `for` et la validation avec `if` dans des petits script que j'ai sauvegardé dans un fichier pour seance 5. Cela m'a aidé quand j'ai repris les slides et mes notes avant de faire les exercices pour le devoir. 
+
+Pour le devoir j'ai repris les exercices de la dernière séance et j'ai ajouté ce qu'on a appris pendant la séance 5. J'ai eu quelques erreurs au début car j'avais oublié que la syntaxe est très stricte avec les espaces, et donc je n'avais pas laissé des espaces après les [ ] dans mes if. 
+
+### Exercices
+
+#### Ecrire un script qui donne le nombre de Location par année (exo_slide26_for.sh)
+- Au début j'avais juste ajouté la boucle for pour optimiser le script.
+- A la place d'avoir la meme commande 3 fois, avec juste l'année qui était differente, j'ai pensé que ce serait mieux s'il y avait une boucle `for` où la variable prend la valeur de l'année, et donc peut être inclue dans le résultat affiché
+- J'ai decidé ensuite d'ajouter un `if` pour verifier que l'argument donné par l'utilisateur (le chemin vers les fichiers) est valide.
+
+#### Ecrire un script qui compte les entités pour une année, un type d'entité donné en argument (exo1a_slide29_validation.sh)
+- Comme j'ai plusieurs arguments donnés par l'utilisateur (le type d'entité, l'année et le chemin vers les fichiers concernés) je devais avoir plusieurs conditions de validation. 
+- J'ai decidé donc d'ajouter une variable (OK) qui augmente par 1 chaque fois qu'une condition est remplie. Si OK est egal à 3 ça veut dire que les 3 conditions sont biens remplies, donc on peut executer le script. 
+- J'ai decidé d'utiliser cette variable pour eviter d'avoir toutes les conditions dans un seul `if`, car ce serait impossible d'avoir des messages d'erreurs utiles, qui nous donne un indice de ce qui ne marche pas. 
+- Je voulais aussi eviter un `if` dans un autre, car j'avais peur de me tromper avec la syntaxe et l'indentation.
+- C'est dans cet exercice où j'ai fait des erreurs avec les espaces, mais que j'ai réussi à résoudre. 
+
+#### Lancer le script precedent 3 fois, une fois par chaque année (exo1b_slide29_foretvalidation.sh)
+- C'est dans cet exercice que je me suis rendue compte qu'il fallait faire une boucle `for` sous un `if` et après avoir bien réusssi à faire ça j'ai modifié l'exercice qui donne le nombre de locations par année (exo_slide26_for.sh)
+- J'avais presque oublié de changer le nom du script lansé 3 fois, ou de mettre le bon chemin si je voulais maintenir le lien avec le script de la semaine derniere. 
+
+#### Le classement des lieux les plus cités, prendre en argument l'année, le mois et le nombre de lieux (exo2_slide29_validation.sh)
+- Quand j'ai essayé d'écrire l'expression regulière pour accepter les * comme argument, je me suis rendue compte que je ne savais pas comment faire pour ne pas considerer * comme caractère special dans la regex. 
+- J'ai donc cherché une solution sur internet et j'ai trouvé qu'il faut juste utiliser `\*` pour que l'ordinateur reconnaisse * comme le caractere-meme et pas comme un symbole pour signifier 0 ou plusieurs repetitions. 
+- Après, j'avais oublié la leçon apprise la derniere fois quand j'ai testé ce script et j'ai mis * comme argument et pas "*". J'ai donc passé un peu de temps essayant de me rendre compte quel était le problème avec mon script, alors que le problème était avec l'argument tapé au clavier.
+
+
+### Notes du projet - 1
+
+- Je suis dans une groupe avec Kehina Manseri et Elisa Lepluvier et nous avons eu une discussion il y a 2 semaines sur le mot et les langues qu'on allait choisir. 
+- On a decidé de choisir le mot "guerre" en anglais, en roumain et en russe et on allait se focaliser sur les articles sur la guerre entre la Russie et l'Ukraine. 
+- On a choisi ce mot parce que nous étions curieuses sur le genre de mots qu'on utilise en Russie versus les médias européens quand on décrit la guerre. 
+- Pour moi ces recherches en roumain sont encores plus interessantes, car la Roumanie est dans l'UE et l'OTAN, mais aussi très affecté par les médias russes. Je voulais donc voir dans quelle mésure les medias roumains s'approchent à la vision de l'ouest en ce qui concerne la guerre.
+- À cause de la guerre entre Israel et Gaza, je me demande si on devrait changer un peu de focus et comparer peut-être comment les 2 guerres sont representés dans les médias. Nous allons en discuter avant les vacances.
+- Pour l'instant on a commancé a faire une liste de liens, et j'en ai trouvé 30. On va essayer d'avoir 100 liens par langue jusqu'à la fin des vacances. 
+
+
+
