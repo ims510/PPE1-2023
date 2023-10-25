@@ -8,7 +8,10 @@ then
 		exit
 fi
 
+N=1
+
 while read -r line;
 do
-	echo ${line};
+	echo $N ${line};
+	N=$(expr $N + 1)
 done < "$FILE_PATH/fr.txt"
