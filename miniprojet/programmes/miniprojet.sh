@@ -12,6 +12,6 @@ N=1
 
 while read -r line;
 do
-	echo $N ${line};
+	echo $N	${line};
 	N=$(expr $N + 1)
 done < "$FILE_PATH/fr.txt"
