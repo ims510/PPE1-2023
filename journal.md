@@ -174,3 +174,46 @@ Pour le devoir j'ai repris les exercices de la dernière séance et j'ai ajouté
 - Après avoir utilisé cette comande je pouvais utiliser le caractere * dans mon expression regulier pour l'encodage. Pour enlever la partie "charset=" et avoir que le nom de l'encodage j'ai utilisé la comande `cut -f 2 -d =` pour maintenir la deuxieme partie apres le delimiteur =.
 - Ensuite je me suis rendue compte que je faisais la commande `curl` deux fois - une fois pour obtenir le code http et une autre fois pour l'encodage. J'ai donc créé une variable pour garder le resultat de `curl` que j'ai ensuit mis dans les variables HTTP et ENCODING. 
 - Une chose que je n'ai pas comprise c'est pourquoi quand j'ai utilisé la variable CURL apres `echo` dans mes variables HTTP et ENCODING elle ne marchait pas si je ne mettais pas des guillimes autur du nom de la variable. La comande `echo $CURL` ne marchait pas, mais `echo "$CURL"` marchait.
+
+
+## 7. Séance du 8 novembre
+
+### Notes du cours:
+
+- Pendant le cours on nous a montré une façon differente d'obtenir l'encodage, qui est assez proche de ce que j'avais fait mais il y a aussi des particularités interessants: `curl -s -I -w -L "%{content_type}" -o /dev/null $URL| grep -P -o "charset=\S+" |cut -d"=" -f2` 
+- On a aussi appris qu'il y a la possibilité de mettre des valeurs qu’on veut utiliser quelque part, mais qu’on n’a pas besoin de garder, dans une sorte de "fichier poublelle" avec l'option `/dev/null` 
+
+### Notes du miniprojet:
+
+- J'ai réussi à ajouter les codes HTML dans mon script que j'avais fait la semaine derniere, pour que les resultat s'affichent sous la forme d'une page HTML. 
+- Au debut j'ai fait l'erreur de ne pas mettre la partie d'introduction `<html>, <head>` etc. mais en relisant les slides je me suis rendue compte de l'erreur. 
+- Je voulais bien investiguer plus comment faire le tableau plus beau, car pour l'instant c'est très simple. J'imagine aussi qu'une fois que j'utilise les liens que j'ai trouvé pour notre projet ce sera encore plus difficile à lire sans aucune mise en page
+
+### Notes des exercices:
+
+#### Exercice 1
+- J'ai du utiliser la page man pour la commande "tr" pour savoir comment remplacer les majuscules avec des minuscules, et j'ai trouvé ma réponse: `tr "[:upper:]" "[:lower:]"`
+- Pour le premier exercice j'ai eu des difficultés avec la decision d'enlever les signes de ponctuation, car je ne savais pas s'il fallait enlever les apostrophes et les tirrets aussi. Au debut j'ai decidé de garder les apostrophes et de prendre des mots comme "j'aime" ou "beau-père" comme un seul mot, mais ensuite je me suis rendue compte que si on separe les mots "j" et "aime" on ne perd pas le sens, mais si on separe "beau" et "père" le sens se perd. J'ai donc decidé de garder les tirrets, et enlever les apostrophes. 
+- C'est une question qui sera difficile à aborder quand je ferai ce genre de traitement pour des textes en roumain, ou on utilise des tirrets à la place des apostrophes, donc il n'y a pas une façon facile de decider entre signes ponctuation qui changent le sens ou pas. 
+
+
+#### Exercice 2
+
+- Pour aborder cet exercice j'ai relu mon script que j'avais fait pour la 5eme semaine quand on a conté les differentes places qui se trouvaient dans les fichiers .ann. Cela m'a beaucoup aidé car j'ai dû juste reutiliser la commande que j'avais utilisé à ce point là. La seule difference est la validation des argument et l'utilisation d'une variable pour la commande `head` pour montrer un certain nombre de resultats. 
+
+#### Exercice 3
+
+- Cet exercice n'etait pas facile, mais ce qui m'a aidé a été d'abord de lire la page man de la commande `paste`. Au debut j'ai utilisé cette comande avec un argument et je ne comprenais pas le but de la commande. En lisant plus attentivement je me suis rendue compte que j'avais besoin de 2 fichiers.
+- Pour bien voir comment ça marche j'ai créé 2 fichier text chacun avec 3 lignes et avec un mot sur chaque ligne. Cela m'a permis de voir exactement comment fonctionne la commande et j'ai utilisé l'option `-d " " ` pour qu'il y ait seulement une space entre les lignes qu'on a concatenées. 
+- Je me suis donc rendue compte aussi que j'aurais besoin de 2 copies de mon fichier, dont les lignes soient decalées par 1. Comme ça le premier mot du premier fichier serait à côté du deuxieme du deuxieme fichier et ainsi suite. 
+
+|   | Je  |
+|---|---|
+|Je  |  mange |
+|mange|  des|
+|des   |  pommes |
+|pommes   |   |
+|   |   |
+
+- Comme on peut voir dans cet exemple, il faut manipuler les fichier pour qu'on puisse les mettre ensemble. Il faut d'abord supprimer la premier ligne d'un des fichiers, et la derniere ligne de l'autre. J'ai fait ça avec la commande `sed '$d'` pour supprimer la derniere ligne d'un des fichiers et `tail -n +2` pour supprimer la premiere ligne de l'autre. 
+- Ensuite j'ai juste repris la commande de l'exercice anterieur. 
