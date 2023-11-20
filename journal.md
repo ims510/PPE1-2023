@@ -231,3 +231,8 @@ Pour le devoir j'ai repris les exercices de la dernière séance et j'ai ajouté
 - La commande que j'ai utilisé est `sed "s|<!-- Table -->|$TABLE|g" template.html > "$FILE_PATH_OUT"`
 - Lorsque je chercheais des instructions pour utiliser sed la commande que j'avais trouvé utilisait des `/`, mais parce que mon code html avait des `/` aussi la commande sed interpretait les slash du code html comme des slash pour la fin de la partie qui doit être remplacé. J'ai donc cherché une solution pour ce problème et j'ai trouvé que si dans une commande on ne peut pas utiliser des slash parce qu'ils existent dans la chaine de cractere qu'on modifie, on peut les remplacer avec des `|`.
 - Separer le code html du code bash me permet de ajuster le format de la page html, sans devoir melanger ça avec le fonctionnement du script. 
+
+- Ensuite, pour faire la page d'accueil j'ai remplacé le fichier index.html qu'on a téléchargé en cours par un fichier index.html que j'ai fait, en prennant le code starter template sur Bulma (https://bulma.io/documentation/overview/start/). 
+- Pour faire le lien avec le tableau j'ai cherché quelles balises html il faut utiliser et j'ai suivi les instructions que j'ai trouvés en ligne. J'ai donc ajouté `<a href="miniprojet/tableaux/tableau.html"><strong>ici</strong>` pour ajouter le lien au mot "ici". 
+- Après avoir tout poussé sur github, le lien https://ims510.github.io/PPE1-2023/ marche bien.
+- Ce que je devrais encore passer du temps à faire c'est la partie "jolie" des pages html - je sais qu'en ce moment elles sont très basiques et je voudrais passer plus de temps pour explorer ce qu'on peut faire en utilisant Bulma. 
