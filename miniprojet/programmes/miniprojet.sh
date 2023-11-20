@@ -10,25 +10,16 @@ then
 fi
 
 N=1
-echo "<html>" > $FILE_PATH_OUT 
-echo "<head>" >> $FILE_PATH_OUT 
-echo "<meta charset="UTF-8" />" >> $FILE_PATH_OUT
-echo "</head>" >> $FILE_PATH_OUT
-echo "<body>" >> $FILE_PATH_OUT
-echo "<table>" >> $FILE_PATH_OUT
-echo "<tr><th>Nombre</th><th>Code HTTP</th><th>URL</th><th>Encodage</th></tr>" >> $FILE_PATH_OUT
+TABLE=""
 while read -r line;
 do
 	#obtenir le code HTTP and store it in a variable 
 	CURL=$(curl -s -I -L ${line} | tr -d "\r" ) #obtenir les headers
 	HTTPCODE=$(echo "$CURL" | grep "^HTTP" | egrep -o "[[:digit:]]{3}" | tail -n 1)
 	ENCODING=$(echo "$CURL" | grep "^content-type:" | egrep -o "charset=[^;]*" | cut -f 2 -d =)
-	echo "<tr>" >> $FILE_PATH_OUT
-	echo "<td>$N</td><td>$HTTPCODE</td><td>${line}</td><td>$ENCODING</td>" >> $FILE_PATH_OUT
-	echo "</tr>" >> $FILE_PATH_OUT
+	TABLEROW="<tr><td>$N</td><td>$HTTPCODE</td><td>${line}</td><td>$ENCODING</td></tr>"
+	TABLE+="$TABLEROW\n"
 	N=$(expr $N + 1)
 done < "$FILE_PATH_IN"
 
-echo "</body>" >> $FILE_PATH_OUT
-echo "</html>" >> $FILE_PATH_OUT
-
+sed "s|<!-- Table -->|$TABLE|g" template.html > "$FILE_PATH_OUT"

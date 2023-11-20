@@ -217,3 +217,17 @@ Pour le devoir j'ai repris les exercices de la dernière séance et j'ai ajouté
 
 - Comme on peut voir dans cet exemple, il faut manipuler les fichier pour qu'on puisse les mettre ensemble. Il faut d'abord supprimer la premier ligne d'un des fichiers, et la derniere ligne de l'autre. J'ai fait ça avec la commande `sed '$d'` pour supprimer la derniere ligne d'un des fichiers et `tail -n +2` pour supprimer la premiere ligne de l'autre. 
 - Ensuite j'ai juste repris la commande de l'exercice anterieur. 
+
+## 8. Séance du 15 novembre
+
+### Notes du cours:
+
+- Pendant la correction de l'exercice pour le miniprojet j'ai appris qu'en fait on peut ecrire le code html sur plusierus lignes, donc on n'a pas besoin de faire echo plusieurs fois comme je l'avais fait dans ma solution.
+
+### Notes du miniprojet:
+
+- Pour rendre la page html qui contient le tableau un peu plus jolie j'ai utilisé la librarie CSS Bulma, qu'on nous a montrée en cours. C'était pas très facile de me rendre compte exactement ce qu'il faut ajouter dans le script pour que ça marche, particulierement. C'est vrai par contre que le site est très bien documenté, ce qui m'a aidé à trouver les characteristiques que je chercheais pour mon tableau.
+- Initiallement j'avais ajouté tout ce dont j'avais besoin dans le script miniprojet.sh, mais ça est devenu tres lourd et difficile à lire. J'ai cherché comment ce type de problème est resolu, et j'ai trouvé une meilleure strategie. J'ai donc créé un nouveau fichier html qui est le template de ma page, dans lequel j'ai mis un commentaire `<!-- Table -->`. Ensuite, j'ai supprimé toutes les commandes echo qui contennaient du code html, car ce code était maintenant dans mon fichier template. J'ai ajouté une commande sed qui remplace le commentaire avec le tableau que j'obtiens quand j'utilise le script. 
+- La commande que j'ai utilisé est `sed "s|<!-- Table -->|$TABLE|g" template.html > "$FILE_PATH_OUT"`
+- Lorsque je chercheais des instructions pour utiliser sed la commande que j'avais trouvé utilisait des `/`, mais parce que mon code html avait des `/` aussi la commande sed interpretait les slash du code html comme des slash pour la fin de la partie qui doit être remplacé. J'ai donc cherché une solution pour ce problème et j'ai trouvé que si dans une commande on ne peut pas utiliser des slash parce qu'ils existent dans la chaine de cractere qu'on modifie, on peut les remplacer avec des `|`.
+- Separer le code html du code bash me permet de ajuster le format de la page html, sans devoir melanger ça avec le fonctionnement du script. 
