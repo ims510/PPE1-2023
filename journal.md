@@ -236,3 +236,10 @@ Pour le devoir j'ai repris les exercices de la dernière séance et j'ai ajouté
 - Pour faire le lien avec le tableau j'ai cherché quelles balises html il faut utiliser et j'ai suivi les instructions que j'ai trouvés en ligne. J'ai donc ajouté `<a href="miniprojet/tableaux/tableau.html"><strong>ici</strong>` pour ajouter le lien au mot "ici". 
 - Après avoir tout poussé sur github, le lien https://ims510.github.io/PPE1-2023/ marche bien.
 - Ce que je devrais encore passer du temps à faire c'est la partie "jolie" des pages html - je sais qu'en ce moment elles sont très basiques et je voudrais passer plus de temps pour explorer ce qu'on peut faire en utilisant Bulma. 
+
+## 9. Séance du 22 novembre
+
+### Notes du cours:
+
+- J'avais choisi de nommer les nouveaux fichiers texte/html qu'on crée lorsqu'on lance le script du mini projet en utilisant la variable `$N`, que j'avais créé au début pour nummeroter les liens. J'ai appris par contre qu'il y avait une autre manière de résoudre ce problème - en utilisant la commande `basename` 
+- Pendant le cours on a réussi à travailler en groupe pour faire les aspirations et les dumps du texte, ainsi que les mettre dans des liens dans le tableau. En travaillant chez nous on a réussi à faire le contexte et on a commencé (mais pas fini) de travailler sur le concordancier. 
